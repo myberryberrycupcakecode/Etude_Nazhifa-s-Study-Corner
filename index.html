@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>étude — Nazhifa's Study Corner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar"><a class="logo" href="#home">étude<span>✳</span></a><span class="topnote">Nazhifa's Study Corner · est. 2026</span></header>
+    <main id="home" class="paper">
+      <div class="paper-top"><span>NOTE 01 / LITTLE PROGRESS</span><span>✿ take it easy</span></div>
+      <div class="doodle" aria-hidden="true"><span class="sun">✳</span><span class="book">▤</span><span class="cup">☕</span><span class="spark">✧</span></div>
+      <p class="kicker">a gentle reminder for busy days</p>
+      <h1>one page<br><i>at a time.</i></h1>
+      <p class="message" id="studyMessage">You don't have to finish everything today. Just begin.</p>
+      <div class="divider"><span>✿</span></div>
+      <p class="section-label">pick a little interaction ↓</p>
+      <div class="buttons" aria-label="Interactive study buttons">
+        <button id="textColorBtn" class="btn pink" type="button">01 · change text color</button>
+        <button id="buttonColorBtn" class="btn green" type="button">02 · change my color</button>
+        <button id="alertBtn" class="btn yellow" type="button">03 · hover for a note</button>
+        <button id="tipBtn" class="btn blue" type="button" aria-controls="tipPanel" aria-expanded="false">04 · show a study tip</button>
+      </div>
+      <div class="tip" id="tipPanel" hidden><strong>✎ A Note for You</strong><p>Try studying for 40 minutes, then take a short break. Keep your phone out of reach while you focus.</p></div>
+      <p class="smallprint">psst... move your mouse over button 03 (no click needed!)</p>
+      <section class="study-tools" aria-label="Study tools">
+        <div class="tools-heading"><span>NOTE 02 / MY STUDY DESK</span><span>✎ small steps count</span></div>
+        <h2>A Little Space to Focus ♡</h2>
+        <p class="tools-intro">Plan your tasks and make time to focus.</p>
+        <div class="tool-grid">
+          <section class="tool-card plan-calendar-card" aria-label="Today's Plan and Deadline Calendar">
+            <div class="tool-number">01 / MY STUDY PLAN ✿</div>
+            <h3>Today's Plan ♡</h3>
+            <p class="tool-hint">Your plans and today's calendar deadlines, all in one place.</p>
+            <ul id="taskList" class="task-list" aria-label="Today's plans"></ul>
+            <p id="taskProgress" class="tool-hint" aria-live="polite">0 of 0 done</p>
+            <button id="calendarToggle" class="calendar-toggle" type="button" aria-haspopup="dialog" aria-controls="calendarPanel">✿ Open Deadline Calendar <span aria-hidden="true">↗</span></button>
+            <p class="tool-hint">To add a plan for today, open the calendar and select today's date.</p>
+          </section>
+          <section class="tool-card"><div class="tool-number">02 / FOCUS TIME ☼</div><h3>Focus Timer</h3><p id="timerDisplay" class="timer" role="timer" aria-live="off">40:00</p><div class="duration-control"><label for="focusDuration">Study Duration <output id="focusDurationValue" for="focusDuration">40 min</output></label><input type="range" id="focusDuration" min="10" max="90" step="5" value="40" aria-label="Study duration in minutes"><div class="range-ends"><span>10 min</span><span>90 min</span></div></div><div class="duration-control"><label for="breakDuration">Break Duration <output id="breakDurationValue" for="breakDuration">5 min</output></label><input type="range" id="breakDuration" min="5" max="30" step="5" value="5"><div class="range-ends"><span>5 min</span><span>30 min</span></div></div><div class="timer-mode" role="group" aria-label="Timer mode"><button id="focusMode" type="button" class="active" aria-pressed="true">Focus</button><button id="breakMode" type="button" aria-pressed="false">Break</button></div><div class="timer-actions"><button id="timerStart" type="button">start ♡</button><button id="timerReset" type="button">reset</button></div><p id="timerStatus" class="tool-hint" aria-live="polite">a little focus goes a long way</p></section>
+        </div>
+        <div id="calendarPanel" class="calendar-modal" hidden>
+          <div class="calendar-backdrop" data-close-calendar="true"></div>
+          <section class="calendar-dialog" role="dialog" aria-modal="true" aria-labelledby="calendarDialogTitle" tabindex="-1">
+            <div class="modal-top"><div><div class="tool-number">MY STUDY PLANNER ✎</div><h3 id="calendarDialogTitle">Deadline Calendar</h3></div><button id="calendarClose" type="button" class="modal-close" aria-label="Close calendar">×</button></div>
+            <p class="tool-hint">Choose a date, then add a plan or deadline. Select today to add to Today's Plan.</p>
+            <div class="calendar-head"><button id="prevMonth" type="button" aria-label="Previous month">‹</button><strong id="calendarMonth"></strong><button id="nextMonth" type="button" aria-label="Next month">›</button></div>
+            <div class="calendar-days" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+            <div id="calendarGrid" class="calendar-grid" aria-label="Calendar dates"></div>
+            <p id="selectedDateLabel" class="selected-date"></p>
+            <form id="deadlineForm" class="task-form"><label class="sr-only" for="deadlineInput">Plan or deadline title</label><input id="deadlineInput" maxlength="90" placeholder="e.g. finish practicum report" required><button type="submit">Add +</button></form>
+            <ul id="deadlineList" class="task-list" aria-label="Plans on selected date"></ul>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer>made with care ♡ &nbsp; · &nbsp; keep showing up for yourself</footer>
+  </div>
+</body>
+</html>

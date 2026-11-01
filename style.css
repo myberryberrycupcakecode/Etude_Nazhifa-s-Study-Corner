@@ -1,0 +1,940 @@
+/* A handmade notebook-inspired design: no libraries or downloaded assets. */
+:root {
+  --ink:#463f3b;
+  --paper:#fffdf7;
+  --bg:#f5eee7;
+  --muted:#81766e
+}
+* {
+  box-sizing:border-box
+}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Georgia,'Times New Roman',serif
+}
+
+.page {
+  max-width:980px;
+  margin:auto;
+  padding:0 25px
+}
+
+.topbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24px 4px
+}
+
+.logo {
+  color:#463f3b;
+  text-decoration:none;
+  font-size:32px;
+  font-weight:bold;
+  letter-spacing:-2px
+}
+
+.logo span {
+  font-size:15px;
+  color:#d77c7c;
+  margin-left:7px;
+  vertical-align:top
+}
+
+.topnote {
+  font:12px 'Trebuchet MS',sans-serif;
+  letter-spacing:.05em;
+  color:var(--muted)
+}
+
+.paper {
+  position:relative;
+  overflow:hidden;
+  background:var(--paper);
+  border:1px solid #e9ded3;
+  border-radius:5px;
+  box-shadow:8px 10px 0 #e9ddd1;
+  padding:25px 45px 40px;
+  text-align:center
+}
+
+.paper:before {
+  content:'';
+  position:absolute;
+  left:32px;
+  top:0;
+  bottom:0;
+  border-left:1px solid #f3d9d5;
+  pointer-events:none
+}
+
+.paper-top {
+  display:flex;
+  justify-content:space-between;
+  font:11px 'Trebuchet MS',sans-serif;
+  letter-spacing:.12em;
+  color:#a38d7e
+}
+
+.doodle {
+  height:120px;
+  position:relative;
+  width:190px;
+  margin:18px auto 0
+}
+
+.sun {
+  position:absolute;
+  top:0;
+  left:30px;
+  color:#e6ac59;
+  font-size:48px
+}
+
+.book {
+  position:absolute;
+  top:29px;
+  left:68px;
+  transform:rotate(-12deg);
+  color:#8a9b82;
+  font-size:82px
+}
+
+.cup {
+  position:absolute;
+  top:56px;
+  right:0;
+  font-size:39px
+}
+
+.spark {
+  position:absolute;
+  left:2px;
+  bottom:0;
+  color:#c78f9c;
+  font-size:35px
+}
+
+.kicker {
+  font:12px 'Trebuchet MS',sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#a77870;
+  margin:10px 0
+}
+
+h1 {
+  font-size:clamp(48px,8vw,78px);
+  line-height:.98;
+  letter-spacing:-3px;
+  margin:12px 0 20px;
+  font-weight:normal
+}
+
+h1 i {
+  font-weight:normal;
+  color:#bd7779
+}
+
+.message {
+  font-size:17px;
+  line-height:1.65;
+  color:#70645c;
+  max-width:510px;
+  margin:0 auto 20px;
+  transition:color .2s
+}
+
+.divider {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  color:#c8a18c;
+  max-width:420px;
+  margin:15px auto
+}
+
+.divider:before,.divider:after {
+  content:'';
+  height:1px;
+  background:#e8d9cb;
+  flex:1
+}
+
+.section-label {
+  font:13px 'Trebuchet MS',sans-serif;
+  color:#8c7e73;
+  margin:20px 0
+}
+
+.buttons {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,240px));
+  gap:12px;
+  justify-content:center
+}
+
+.btn {
+  min-height:53px;
+  padding:12px 15px;
+  border:1px solid #6b60584d;
+  border-radius:4px;
+  color:#463f3b;
+  cursor:pointer;
+  font:14px 'Trebuchet MS',sans-serif;
+  letter-spacing:.01em;
+  box-shadow:3px 3px 0 #66594c22;
+  transition:transform .15s,background-color .2s
+}
+
+.btn:hover {
+  transform:translateY(-2px)
+}
+
+.btn:focus-visible {
+  outline:3px solid #9c7275;
+  outline-offset:3px
+}
+
+.pink {
+  background:#f7dedc
+}
+
+.green {
+  background:#e0e9d5
+}
+
+.yellow {
+  background:#f7eac2
+}
+
+.blue {
+  background:#dfe9ed
+}
+
+.tip {
+  max-width:495px;
+  margin:20px auto 0;
+  text-align:left;
+  padding:15px 19px;
+  background:#faf1d9;
+  border-left:3px solid #d9ad6e;
+  font:14px 'Trebuchet MS',sans-serif;
+  line-height:1.6
+}
+
+.tip p {
+  margin:6px 0 0
+}
+
+.smallprint {
+  font:12px 'Trebuchet MS',sans-serif;
+  color:#9b8a7e;
+  margin:24px 0 0
+}
+
+footer {
+  text-align:center;
+  padding:25px 0 30px;
+  font:12px 'Trebuchet MS',sans-serif;
+  color:#968579
+}
+
+@media(max-width:600px) {
+  .page {
+    padding:0 14px
+  }
+
+  .topbar {
+    padding:17px 2px
+  }
+
+  .topnote {
+    font-size:10px;
+    max-width:130px;
+    text-align:right
+  }
+
+  .paper {
+    padding:20px 18px 30px;
+    box-shadow:5px 6px 0 #e9ddd1
+  }
+
+  .paper:before {
+    left:12px
+  }
+
+  .paper-top {
+    font-size:9px;
+    letter-spacing:.03em
+  }
+
+  .buttons {
+    grid-template-columns:minmax(0,320px)
+  }
+
+  .btn {
+    width:100%
+  }
+
+  h1 {
+    letter-spacing:-2px
+  }
+
+  .message {
+    font-size:15px
+  }
+
+  .doodle {
+    height:105px
+  }
+}
+
+@media(min-width:601px) and (max-width:800px) {
+  .paper {
+    padding:24px 28px 35px
+  }
+
+  .buttons {
+    grid-template-columns:repeat(2,minmax(0,220px))
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .btn,.message {
+    transition:none
+  }
+}
+/* Extra study tools keep the same paper-and-stationery look. */
+.study-tools {
+  margin-top:35px;
+  border-top:1px dashed #d9c8b8;
+  padding-top:24px;
+  text-align:center
+}
+
+.tools-heading {
+  display:flex;
+  justify-content:space-between;
+  font:11px 'Trebuchet MS',sans-serif;
+  letter-spacing:.1em;
+  color:#a38d7e
+}
+
+.study-tools h2 {
+  font-size:30px;
+  font-weight:normal;
+  margin:18px 0 4px
+}
+
+.tools-intro {
+  font:13px 'Trebuchet MS',sans-serif;
+  color:#81766e;
+  margin:0 0 22px
+}
+
+.tool-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  text-align:left
+}
+
+.tool-card {
+  min-width:0;
+  background:#fffaf0;
+  border:1px solid #eadfd3;
+  border-radius:5px;
+  padding:18px;
+  box-shadow:3px 4px 0 #eadfd3
+}
+
+.tool-number {
+  font:10px 'Trebuchet MS',sans-serif;
+  letter-spacing:.11em;
+  color:#a47777
+}
+
+.tool-card h3 {
+  font-size:21px;
+  font-weight:normal;
+  margin:10px 0 15px
+}
+
+.task-form {
+  display:flex;
+  gap:7px
+}
+
+.task-form input,.notes-card textarea {
+  min-width:0;
+  width:100%;
+  background:#fffefa;
+  border:1px solid #d9cbbf;
+  border-radius:3px;
+  padding:11px;
+  color:#463f3b;
+  font:13px 'Trebuchet MS',sans-serif
+}
+
+.task-form button,.timer-actions button,.timer-options button,.task-delete {
+  border:1px solid #d3c5b8;
+  border-radius:3px;
+  background:#e0e9d5;
+  color:#463f3b;
+  cursor:pointer;
+  padding:9px 12px;
+  font:12px 'Trebuchet MS',sans-serif
+}
+
+.task-list {
+  list-style:none;
+  padding:0;
+  margin:14px 0 0
+}
+
+.task-list li {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 0;
+  border-bottom:1px dashed #e7dacf;
+  font:13px 'Trebuchet MS',sans-serif;
+  overflow-wrap:anywhere
+}
+
+.task-list li span {
+  flex:1
+}
+
+.task-list li.done span {
+  text-decoration:line-through;
+  color:#9c938a
+}
+
+.task-delete {
+  padding:3px 7px;
+  background:#f7dedc
+}
+
+.tool-hint {
+  font:11px 'Trebuchet MS',sans-serif;
+  color:#8c7e73;
+  margin:13px 0 0
+}
+
+.timer {
+  text-align:center;
+  font:44px Georgia,serif;
+  letter-spacing:2px;
+  margin:7px 0 12px;
+  color:#a47777;
+  font-variant-numeric:tabular-nums
+}
+
+.timer-options,.timer-actions {
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin-top:8px
+}
+
+.timer-options button {
+  background:#f7eac2
+}
+
+.timer-options button.active {
+  outline:2px solid #b69b70;
+  outline-offset:1px
+}
+
+.timer-actions button:first-child {
+  background:#e0e9d5
+}
+
+.timer-actions button:last-child {
+  background:#f7dedc
+}
+
+.notes-card {
+  grid-column:1/-1
+}
+
+.notes-card textarea {
+  resize:vertical;
+  line-height:1.6
+}
+
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0
+}
+
+.tool-card button:focus-visible,.tool-card input:focus-visible,.tool-card textarea:focus-visible {
+  outline:2px solid #a47777;
+  outline-offset:2px
+}
+
+@media(max-width:600px) {
+  .tool-grid {
+    grid-template-columns:1fr
+  }
+
+  .notes-card {
+    grid-column:auto
+  }
+
+  .tools-heading {
+    font-size:9px
+  }
+
+  .study-tools h2 {
+    font-size:25px
+  }
+}
+/* Adjustable focus duration: subtle stationery-style range slider. */
+.duration-control {
+  margin:16px auto 14px;
+  max-width:270px;
+  font:12px 'Trebuchet MS',sans-serif;
+  color:#70645c
+}
+
+.duration-control label,.range-ends {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px
+}
+
+.duration-control output {
+  font-weight:bold;
+  color:#68866b
+}
+
+.duration-control input {
+  width:100%;
+  margin:11px 0 4px;
+  accent-color:#8a9b82;
+  cursor:pointer
+}
+
+.range-ends {
+  font-size:10px;
+  color:#9b8a7e
+}
+
+.duration-control input:focus-visible {
+  outline:2px solid #a47777;
+  outline-offset:4px
+}
+/* Planner and report, styled like the original notebook cards. */
+.planner {
+  margin-top:35px;
+  border-top:1px dashed #d9c8b8;
+  padding-top:24px;
+  text-align:center
+}
+
+.planner h2 {
+  font-size:30px;
+  font-weight:normal;
+  margin:18px 0 4px
+}
+
+.planner-grid {
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:15px;
+  text-align:left
+}
+
+.timer-mode {
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  margin:12px 0
+}
+
+.timer-mode button,.calendar-head button,.export-btn {
+  border:1px solid #d3c5b8;
+  border-radius:3px;
+  background:#f7eac2;
+  color:#463f3b;
+  cursor:pointer;
+  padding:9px 15px;
+  font:12px 'Trebuchet MS',sans-serif
+}
+
+.timer-mode button.active {
+  background:#e0e9d5;
+  outline:2px solid #a2b19b
+}
+
+.calendar-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:12px 0;
+  font:14px 'Trebuchet MS',sans-serif
+}
+
+.calendar-days,.calendar-grid {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:4px;
+  text-align:center
+}
+
+.calendar-days {
+  font:10px 'Trebuchet MS',sans-serif;
+  color:#9b8a7e;
+  margin-bottom:6px
+}
+
+.calendar-grid button {
+  min-width:0;
+  min-height:32px;
+  background:#fffefa;
+  border:1px solid #eee1d4;
+  border-radius:3px;
+  cursor:pointer;
+  color:#463f3b;
+  font:12px 'Trebuchet MS',sans-serif;
+  position:relative
+}
+
+.calendar-grid button.selected {
+  background:#e0e9d5;
+  border-color:#8a9b82
+}
+
+.calendar-grid button.today {
+  font-weight:bold
+}
+
+.calendar-grid button.has-deadline:after {
+  content:'•';
+  position:absolute;
+  bottom:-3px;
+  left:45%;
+  color:#b36b77
+}
+
+.selected-date {
+  font:13px 'Trebuchet MS',sans-serif;
+  margin:15px 0 10px;
+  color:#a47777
+}
+
+.report-date {
+  display:block;
+  margin:9px 0 15px;
+  padding:9px;
+  width:100%;
+  max-width:220px;
+  border:1px solid #d9cbbf;
+  background:#fffefa;
+  color:#463f3b
+}
+
+.report-summary {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px
+}
+
+.report-summary p {
+  background:#f7eee7;
+  border:1px solid #eadfd3;
+  border-radius:4px;
+  text-align:center;
+  padding:13px 5px
+}
+
+.report-summary strong {
+  display:block;
+  font-size:26px;
+  color:#a47777
+}
+
+.report-summary span {
+  font:10px 'Trebuchet MS',sans-serif;
+  color:#70645c
+}
+
+.export-btn {
+  background:#e0e9d5;
+  margin-top:15px
+}
+
+.planner button:focus-visible,.planner input:focus-visible,.timer-mode button:focus-visible {
+  outline:2px solid #a47777;
+  outline-offset:2px
+}
+
+@media(max-width:600px) {
+  .planner-grid {
+    grid-template-columns:1fr
+  }
+
+  .planner h2 {
+    font-size:25px
+  }
+}
+/* Connected calendar and daily plan */
+.overview-card {
+  align-self:start;
+  display:flex;
+  flex-direction:column;
+  gap:8px
+}
+
+.overview-count {
+  background:#edf0e4;
+  border:1px solid #dbe2d2;
+  padding:22px 15px;
+  text-align:center;
+  border-radius:4px
+}
+
+.overview-count strong {
+  display:block;
+  font:42px Georgia,serif;
+  color:#7b967b
+}
+
+.overview-count span {
+  font:12px 'Trebuchet MS',sans-serif;
+  color:#70645c
+}
+
+.overview-caption {
+  font:11px 'Trebuchet MS',sans-serif;
+  letter-spacing:.1em;
+  color:#a47777;
+  margin:15px 0 0
+}
+
+.overview-next {
+  font:16px Georgia,serif;
+  line-height:1.5;
+  margin:0;
+  overflow-wrap:anywhere
+}
+
+.overview-footer {
+  border-top:1px dashed #d9c8b8;
+  margin-top:20px;
+  padding-top:14px;
+  font:12px 'Trebuchet MS',sans-serif;
+  color:#9b8a7e
+}
+
+.due-tag {
+  display:inline-block;
+  font:10px 'Trebuchet MS',sans-serif;
+  background:#f7dedc;
+  color:#805b61;
+  padding:3px 5px;
+  border-radius:3px;
+  margin-left:5px;
+  white-space:nowrap
+}
+
+.planner-grid {
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)
+}
+
+@media(max-width:600px) {
+  .planner-grid {
+    grid-template-columns:minmax(0,1fr)
+  }
+}
+/* Compact three-column study desk: calendar opens on demand. */
+.tool-grid {
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  align-items:start;
+  gap:12px
+}
+.tool-grid .tool-card {
+  padding:15px
+}
+.tool-grid .tool-card h3 {
+  font-size:19px
+}
+.calendar-toggle {
+  width:100%;
+  margin:17px 0 4px;
+  padding:12px;
+  background:#e0e9d5;
+  border:1px solid #c7d0bd;
+  border-radius:4px;
+  color:#463f3b;
+  cursor:pointer;
+  font:13px 'Trebuchet MS',sans-serif;
+  display:flex;
+  justify-content:space-between;
+  align-items:center
+}
+.calendar-panel {
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px dashed #e0d2c6
+}
+.calendar-panel[hidden] {
+  display:none
+}
+.compact-calendar .calendar-grid {
+  gap:2px
+}
+
+.compact-calendar .calendar-grid button {
+  min-height:27px;
+  font-size:11px
+}
+.compact-calendar .calendar-head button {
+  padding:6px 9px
+}
+.today-deadlines {
+  margin-top:20px;
+  border-top:1px dashed #d9c8b8;
+  padding-top:10px
+}
+.today-deadlines h4 {
+  font:18px Georgia,serif;
+  font-weight:normal;
+  margin:5px 0
+}
+.today-deadlines .tool-hint {
+  margin-top:3px
+}
+.today-deadlines .task-list li {
+  font-size:12px
+}
+@media(max-width:850px) {
+  .tool-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr))
+  }
+
+  .compact-calendar {
+    grid-column:1/-1
+  }
+}
+@media(max-width:600px) {
+  .tool-grid {
+    grid-template-columns:minmax(0,1fr)
+  }
+
+  .compact-calendar {
+    grid-column:auto
+  }
+}
+/* Unified plan and timer; the calendar is a floating modal, not an expanding column. */
+.tool-grid {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:15px
+}
+.tool-grid .tool-card {
+  padding:18px
+}
+.plan-calendar-card .calendar-toggle {
+  margin-top:22px
+}
+.calendar-modal[hidden] {
+  display:none!important
+}
+.calendar-modal {
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px
+}
+.calendar-backdrop {
+  position:absolute;
+  inset:0;
+  background:rgba(51,43,39,.52)
+}
+.calendar-dialog {
+  position:relative;
+  z-index:1;
+  background:#fffaf0;
+  border:1px solid #dfcfc0;
+  box-shadow:8px 10px 0 rgba(66,54,45,.18);
+  border-radius:7px;
+  padding:22px;
+  width:min(100%,450px);
+  max-height:min(90vh,740px);
+  overflow-y:auto;
+  text-align:left;
+  outline:none
+}
+.modal-top {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px
+}
+
+.modal-top h3 {
+  font:normal 25px Georgia,serif;
+  margin:8px 0 4px
+}
+.modal-close {
+  border:1px solid #dfcfc0;
+  background:#f7dedc;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:24px;
+  width:36px;
+  height:36px
+}
+.calendar-dialog .calendar-grid button {
+  min-height:38px
+}
+.calendar-dialog .calendar-head {
+  margin-top:22px
+}
+.calendar-dialog .task-list {
+  max-height:130px;
+  overflow-y:auto
+}
+.modal-open {
+  overflow:hidden
+}
+@media(max-width:600px) {
+  .tool-grid {
+    grid-template-columns:minmax(0,1fr)
+  }
+
+  .calendar-dialog {
+    padding:16px;
+    max-height:88vh
+  }
+
+  .calendar-dialog .calendar-grid button {
+    min-height:35px
+  }
+}
+/* Soft Gingham: a lightweight local background image; cards and layout unchanged. */
+body {
+  background-color:#f7eee8;
+  background-image:url("soft-gingham.svg");
+  background-repeat:repeat;
+  background-size:72px 72px;
+  background-attachment:fixed
+}
